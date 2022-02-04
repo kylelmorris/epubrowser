@@ -144,11 +144,16 @@ def SquareSelect(evt):
     squarepath = imgpath
     #Load square image
     load = RBGAImage(imgpath)
-    load = load.resize((400,400), Image.ANTIALIAS)
+    width, height = load.size
+    print(width, height)
+    ratio = width/height
+    print(ratio)
+    load = load.resize((400,int(400/ratio)), Image.ANTIALIAS)
     render = ImageTk.PhotoImage(load)
     imgSq = Label(main_frame, image=render)
     imgSq.image = render
     imgSq.place(x=0, y=395)
+
     #Report selected square to GUI
     name = os.path.basename(imgpath)
     entrySq.delete(0, tk.END)
@@ -216,7 +221,11 @@ def FoilSelect(evt):
     foilpath = imgpath
     #Load FoilHole image
     load = RBGAImage(imgpath)
-    load = load.resize((400,400), Image.ANTIALIAS)
+    width, height = load.size
+    print(width, height)
+    ratio = width/height
+    print(ratio)
+    load = load.resize((400,int(400/ratio)), Image.ANTIALIAS)
     render = ImageTk.PhotoImage(load)
     imgFoil = Label(main_frame, image=render)
     imgFoil.image = render
@@ -256,7 +265,11 @@ def MicSelect(evt):
     micpath = imgpath
     #Load Micrograph image
     load = RBGAImage(imgpath)
-    load = load.resize((400,400), Image.ANTIALIAS)
+    width, height = load.size
+    print(width, height)
+    ratio = width/height
+    print(ratio)
+    load = load.resize((400,int(400/ratio)), Image.ANTIALIAS)
     render = ImageTk.PhotoImage(load)
     imgMic = Label(main_frame, image=render)
     imgMic.image = render
